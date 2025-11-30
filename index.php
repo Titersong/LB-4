@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         case "-": $result = $num1 - $num2; break;
         case "*": $result = $num1 * $num2; break;
         case "/":
-            $result = ($num2 == 0) ? "Ошибка: деление на ноль" : $num1 / $num2;
+            $result = ($num2 == 0) ? "Помилка: поділ на нуль" : $num1 / $num2;
             break;
     }
 
@@ -25,7 +25,7 @@ $history = file_exists($historyFile) ? file_get_contents($historyFile) : "";
 
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ua">
 <head>
 <meta charset="UTF-8">
 <title>Калькулятор</title>
@@ -48,7 +48,7 @@ $history = file_exists($historyFile) ? file_get_contents($historyFile) : "";
 
         <input type="text" name="num2" value="0">
 
-        <button type="submit" name="submit">Вычислить</button>
+        <button type="submit" name="submit">Обчислити</button>
     </form>
 
     <?php if ($result !== ""): ?>
@@ -57,8 +57,8 @@ $history = file_exists($historyFile) ? file_get_contents($historyFile) : "";
 </div>
 
 <div class="history-box">
-    <b>История вычислений:</b><br><br>
-    <?= $history ?: "История пуста." ?>
+    <b>Історія обчислень:</b><br><br>
+    <?= $history ?: "Історія порожня." ?>
 </div>
 
 </body>
